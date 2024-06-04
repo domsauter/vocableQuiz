@@ -1,0 +1,8 @@
+[vokabel_quiz.rc]
+vokabel_quizres.h
+[vokabel_quiz.c]
+vokabel_quizres.h
+prototypen.h
+[meine_unterprogramme.c]
+vokabel_quizres.h
+prototypen.h

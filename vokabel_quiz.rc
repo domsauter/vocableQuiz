@@ -1,0 +1,112 @@
+#include <windows.h>
+#include "vokabel_quizres.h"
+/* --- The following code comes from c:\lcc\lib\wizard\default.rc. */
+IDMAINMENU MENU
+BEGIN
+	POPUP "&Datei"
+	BEGIN
+		MENUITEM "&Neue Datei",IDM_Datei_neu
+		MENUITEM "Datei &laden",IDM_Datei_laden
+		MENUITEM "&Beenden",IDM_EXIT
+	END
+	POPUP "&Quiz Starten"
+		BEGIN
+		MENUITEM "&Englisch-Deutsch",IDM_eng_ger
+		MENUITEM "&Deutsch-Englisch",IDM_ger_eng
+		END
+	POPUP "&Hilfe"
+	BEGIN
+		MENUITEM "&Über",IDM_ABOUT
+	END
+END
+IDACCEL ACCELERATORS
+BEGIN
+	"Q",	IDM_EXIT,VIRTKEY,CONTROL
+END
+/* --- The following code comes from c:\lcc\lib\wizard\menustr.tpl. */
+// This tables contains the explanation strings to be shown in the status
+// bar when the uses moves the mouse in an open menu.
+// Organization:
+// For each popup menu, there is the identifier of the popup itself, followed
+// by the strings for all items in that menu. The ID of each string is its
+// command #define.
+//
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_FILEMENU        "Create, open, save, or print documents"
+    IDM_Datei_neu            "Creates a new document"
+    IDM_Datei_laden            "Opens an existing document"
+    IDM_SAVE            "Saves the active document"
+    IDM_SAVEAS          "Saves the active document under a different name"
+    IDM_CLOSE           "Closes the active document"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDM_EXIT                "Quits this application"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_HELPMENU            "Get help"
+    IDM_ABOUT               "Displays information about this application"
+END
+
+//maskenprogramm der manuellen eingabe
+Maske_eingabe DIALOG 200, 100, 230, 120
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Eingabemaske"
+FONT 8, "MS Sans Serif"
+BEGIN
+
+	EDITTEXT        EINGABEFELD_1, 10, 25, 100,  10, ES_AUTOHSCROLL
+	EDITTEXT        EINGABEFELD_2, 120, 25, 100,  10, ES_AUTOHSCROLL
+
+	PUSHBUTTON      "Eingabe speichern",      KNOPF_1, 25, 75,  80, 25
+	PUSHBUTTON      "Eingabe beenden", IDOK,    120, 75, 80, 25
+
+    GROUPBOX        "Eingabe Speichern und fortsetzen oder Eingabe beenden", GRUPPE1, 17, 60, 191, 48
+
+    LTEXT           "Deutsch",   INFOTEXT_1, 16, 12, 129, 12
+	LTEXT			"Englisch",  INFOTEXT_2, 126, 12, 129,12
+END
+
+//maskenprogramm englisch-deutsch
+Maske_eng_ger DIALOG 200, 100, 230, 120
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Englisch-Deutsch"
+FONT 8, "MS Sans Serif"
+BEGIN
+
+	LTEXT       	"",Vorgabewort_eng, 10, 25, 100,  10, ES_AUTOHSCROLL
+	EDITTEXT        EINGABE_ger, 120, 25, 100,  10, ES_AUTOHSCROLL
+
+	PUSHBUTTON      "Eingabe absenden",      KNOPF_1_eng_ger, 25, 75,  80, 25
+	PUSHBUTTON      "Quiz beenden", IDOK,    120, 75, 80, 25
+
+    LTEXT			"",			KONTROLLE_1, 17,50,190,10
+	GROUPBOX        "Eingabe absenden und fortsetzen oder Quiz beenden", GRUPPE1_eng_ger, 17, 60, 191, 48
+
+    LTEXT           "Englisch",   INFOTEXT_1_eng_ger, 16, 12, 129, 12
+	LTEXT			"Deutsch",  INFOTEXT_2_eng_ger, 126, 12, 129,12
+END
+
+//maskenprogramm deutsch-englisch
+Maske_ger_eng DIALOG 200, 100, 230, 120
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Deutsch-Englisch"
+FONT 8, "MS Sans Serif"
+BEGIN
+
+	LTEXT       	"",Vorgabewort_ger, 10, 25, 100,  10, ES_AUTOHSCROLL
+	EDITTEXT        EINGABE_eng, 120, 25, 100,  10, ES_AUTOHSCROLL
+
+	PUSHBUTTON      "Eingabe absenden",      KNOPF_1_ger_eng, 25, 75,  80, 25
+	PUSHBUTTON      "Quiz beenden", IDOK,    120, 75, 80, 25
+
+    LTEXT			"",			KONTROLLE, 17,50,190,10
+	GROUPBOX        "Eingabe absenden und fortsetzen oder Quiz beenden", GRUPPE1_ger_eng, 17, 60, 191, 48
+
+    LTEXT           "Deutsch",   INFOTEXT_1_ger_eng, 16, 12, 129, 12
+	LTEXT			"Englisch",  INFOTEXT_2_ger_eng, 126, 12, 129,12
+END

@@ -1,0 +1,31 @@
+#include <windows.h>
+#include "maskenprogrammres.h"
+
+// Hier stehen die Menuebeschreibungen
+IDMAINMENU MENU
+BEGIN
+    MENUITEM "&Exit", IDM_EXIT
+    MENUITEM "Maske aufrufen", LERNMASKE
+END
+
+
+
+// Ab hier kommen die Maskenbeschreibungen
+MASKENNAME DIALOG 200, 100, 230, 120
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Überschrift Lernmaske"
+FONT 8, "MS Sans Serif"
+BEGIN
+
+	EDITTEXT        EINGABEFELD_1, 10, 25, 100,  10, ES_AUTOHSCROLL
+	EDITTEXT        EINGABEFELD_2, 10, 45, 120,  20, ES_AUTOHSCROLL
+
+	PUSHBUTTON      "Drück mich",      KNOPF_1, 25, 75,  60, 25
+	PUSHBUTTON      "Maske schließen", IDOK,    90, 75, 110, 25
+
+    GROUPBOX        "Zeige Zusammengehörigkeit", GRUPPE1, 17, 60, 191, 48, NOT WS_VISIBLE | WS_DISABLED
+
+    LTEXT           "Text zur Info",   INFOTEXT, 16, 12, 129, 12
+END
+
+
